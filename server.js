@@ -15,11 +15,11 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connection to MongoDb
-mongoose.connect("mongodb://localhost/workoutTracker", {
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/workoutTracker", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useFindAndModify: false
 });
 
 // using Routes
